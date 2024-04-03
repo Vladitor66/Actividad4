@@ -12,56 +12,52 @@ namespace actividad4.DAL
 {
     public class ClienteDal
     {
-        public DataTable ListarClientesDal()
+        public DataTable ListarClientes()
         {
-            string consulta = "Select * from cliente";
+            string consulta = "SELECT * FROM Cliente";
             DataTable lista = conexion.EjecutarDataTabla(consulta, "tabla");
             return lista;
         }
 
-        public void InsertarClienteDal(Cliente cliente)
+        public void InsertarCliente(Cliente cliente)
         {
-            string consulta = "insert into cliente values('" + cliente.Nombre + "'," +
-                                                         "'" + cliente.Apellido + "'," +
-                                                          "'" + cliente.CorreoElectronico + "'," +
-                                                         "'" + cliente.Telefono + "'," +
-                                                         "'" + cliente.Direccion + "')";
+            string consulta = "INSERT INTO Cliente (Nombre, Apellido, Correo, Telefono, Direccion) " +
+                              "VALUES ('" + cliente.Nombre + "', '" + cliente.Apellido + "', '" + cliente.Correo + "', '" +
+                              cliente.Telefono + "', '" + cliente.Direccion + "')";
             conexion.Ejecutar(consulta);
         }
 
-        public Cliente ObtenerClienteId(int id)
+        public Cliente ObtenerClientePorId(int id)
         {
-            string consulta = "select * from cliente where idcliente = " + id;
-            DataTable tabla = conexion.EjecutarDataTabla(consulta, "asdas");
+            string consulta = "SELECT * FROM Cliente WHERE IDCliente = " + id;
+            DataTable tabla = conexion.EjecutarDataTabla(consulta, "tabla");
             Cliente cliente = new Cliente();
             if (tabla.Rows.Count > 0)
             {
-                cliente.IdCliente = Convert.ToInt32(tabla.Rows[0]["idcliente"]);
-                cliente.Nombre = tabla.Rows[0]["nombre"].ToString();
-                cliente.Apellido = tabla.Rows[0]["apellido"].ToString();
-                cliente.CorreoElectronico = tabla.Rows[0]["correoelectronico"].ToString();
-                cliente.Telefono = tabla.Rows[0]["telefono"].ToString();
-                cliente.Direccion = tabla.Rows[0]["direccion"].ToString();
-
+                cliente.IDCliente = Convert.ToInt32(tabla.Rows[0]["IDCliente"]);
+                cliente.Nombre = tabla.Rows[0]["Nombre"].ToString();
+                cliente.Apellido = tabla.Rows[0]["Apellido"].ToString();
+                cliente.Correo = tabla.Rows[0]["Correo"].ToString();
+                cliente.Telefono = tabla.Rows[0]["Telefono"].ToString();
+                cliente.Direccion = tabla.Rows[0]["Direccion"].ToString();
             }
             return cliente;
         }
 
-        public void EditarClienteDal(Cliente cliente)
+        public void EditarCliente(Cliente cliente)
         {
-            string consulta = "update cliente set nombre ='" + cliente.Nombre + "'," +
-                                                  "apellido ='" + cliente.Apellido + "'," +
-                                                  "correoelectronico ='" + cliente.CorreoElectronico + "'," +
-                                                  "telefono ='" + cliente.Telefono + "'," +
-                                                  "direccion ='" + cliente.Direccion + "'" +
-                                     "where idcliente=" + cliente.IdCliente;
-
+            string consulta = "UPDATE Cliente SET Nombre = '" + cliente.Nombre + "', " +
+                              "Apellido = '" + cliente.Apellido + "', " +
+                              "Correo = '" + cliente.Correo + "', " +
+                              "Telefono = '" + cliente.Telefono + "', " +
+                              "Direccion = '" + cliente.Direccion + "' " +
+                              "WHERE IDCliente = " + cliente.IDCliente;
             conexion.Ejecutar(consulta);
         }
 
-        public void EliminarClienteDal(int id)
+        public void EliminarCliente(int id)
         {
-            string consulta = "delete from cliente where idcliente =" + id;
+            string consulta = "DELETE FROM Cliente WHERE IDCliente = " + id;
             conexion.Ejecutar(consulta);
         }
 

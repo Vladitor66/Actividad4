@@ -28,58 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button3 = new Button();
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
-            label1 = new Label();
-            label2 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
+            // button3
+            // 
+            button3.Location = new Point(303, 37);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 18;
+            button3.Text = "Seleccionar";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // textBox1
             // 
-            textBox1.Location = new Point(137, 75);
+            textBox1.Location = new Point(80, 39);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(315, 27);
-            textBox1.TabIndex = 0;
+            textBox1.Size = new Size(180, 27);
+            textBox1.TabIndex = 17;
+            textBox1.Text = "Id Cliente";
             // 
             // dataGridView1
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(118, 136);
+            dataGridView1.Location = new Point(43, 136);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(536, 265);
-            dataGridView1.TabIndex = 1;
+            dataGridView1.Size = new Size(461, 250);
+            dataGridView1.TabIndex = 19;
             // 
-            // label1
+            // button1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(38, 75);
-            label1.Name = "label1";
-            label1.Size = new Size(68, 20);
-            label1.TabIndex = 2;
-            label1.Text = "IdCliente";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(526, 78);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 20);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
+            button1.Location = new Point(80, 85);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 20;
+            button1.Text = "MOSTRAR";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // CalcularPedidoVista
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(545, 450);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
+            Controls.Add(button3);
             Controls.Add(textBox1);
             Name = "CalcularPedidoVista";
             Text = "CalcularPedidoVista";
@@ -90,9 +90,9 @@
 
         #endregion
 
+        private Button button3;
         private TextBox textBox1;
         private DataGridView dataGridView1;
-        private Label label1;
-        private Label label2;
+        private Button button1;
     }
 }

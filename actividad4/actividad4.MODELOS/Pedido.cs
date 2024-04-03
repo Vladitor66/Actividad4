@@ -8,8 +8,8 @@ namespace actividad4.MODELOS
 {
     public class Pedido
     {
-        public int IdPedido { get; set; }  
-        public int IdCliente { get; set; }
+        public int IDPedido { get; set; }
+        public int IDCliente { get; set; }
         public DateTime Fecha { get; set; }
         public decimal Total { get; set; }
         public string Estado { get; set; }

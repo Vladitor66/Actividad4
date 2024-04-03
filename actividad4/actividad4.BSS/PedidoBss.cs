@@ -12,25 +12,34 @@ namespace actividad4.BSS
     public class PedidoBss
     {
         PedidoDal dal = new PedidoDal();
+
         public DataTable ListarPedidoBss()
         {
-            return dal.ListarPedidoDal();
+            return dal.ListarPedidos();
         }
-        public void InsertarPedidoBss(PedidoBss pedido)
+
+        public void InsertarPedidoBss(Pedido pedido)
         {
-            dal.InsertarPedidoDal(pedido);
+            dal.InsertarPedido(pedido);
         }
-        public Pedido ObtenerIdBss(int id)
+
+        public Pedido ObtenerPedidoPorIdBss(int id)
         {
-            return dal.ObtenerPedidoId(id);
+            return dal.ObtenerPedidoPorId(id);
         }
-        public void EditarPedidoBss(Pedido p)
+
+        public void EditarPedidoBss(Pedido pedido)
         {
-            dal.EditarPedidoDal(p);
+            dal.EditarPedido(pedido);
         }
+
         public void EliminarPedidoBss(int id)
         {
-            dal.EliminarPedidoDal(id);
+            dal.EliminarPedido(id);
+        }
+        public DataTable CalcularPedidosClienteBss(int ID)
+        {
+            return dal.CalcularTotalClienteDal(ID);
         }
 
     }
